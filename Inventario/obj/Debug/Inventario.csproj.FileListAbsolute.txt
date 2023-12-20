@@ -1,0 +1,16 @@
+D:\Proyectos\Inventario\Inventario\bin\Debug\Inventario.exe.config
+D:\Proyectos\Inventario\Inventario\bin\Debug\Inventario.exe
+D:\Proyectos\Inventario\Inventario\bin\Debug\Inventario.pdb
+D:\Proyectos\Inventario\Inventario\obj\Debug\Inventario.csproj.AssemblyReference.cache
+D:\Proyectos\Inventario\Inventario\obj\Debug\Inventario.Properties.Resources.resources
+D:\Proyectos\Inventario\Inventario\obj\Debug\Inventario.csproj.GenerateResource.cache
+D:\Proyectos\Inventario\Inventario\obj\Debug\Inventario.csproj.CoreCompileInputs.cache
+D:\Proyectos\Inventario\Inventario\obj\Debug\Inventario.exe
+D:\Proyectos\Inventario\Inventario\obj\Debug\Inventario.pdb
+D:\Proyectos\Inventario\Inventario\obj\Debug\Inventario.Inventario.resources
+D:\Proyectos\Inventario\Inventario\obj\Debug\Inventario.Producto.resources
+D:\Proyectos\Inventario\Inventario\bin\Debug\Newtonsoft.Json.dll
+D:\Proyectos\Inventario\Inventario\bin\Debug\Newtonsoft.Json.xml
+D:\Proyectos\Inventario\Inventario\obj\Debug\Inventario.csproj.CopyComplete
+D:\Proyectos\Inventario\Inventario\bin\Debug\InventarioBD.mdf
+D:\Proyectos\Inventario\Inventario\bin\Debug\InventarioBD_log.ldf
