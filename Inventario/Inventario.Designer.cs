@@ -34,6 +34,7 @@
             this.cbmTipoProducto = new System.Windows.Forms.ComboBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.cmbProductos = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,16 +71,11 @@
             // 
             this.cbmTipoProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbmTipoProducto.FormattingEnabled = true;
-            this.cbmTipoProducto.Items.AddRange(new object[] {
-            "Tortas",
-            "Frias",
-            "Bebidas",
-            "Velas",
-            "Otros"});
             this.cbmTipoProducto.Location = new System.Drawing.Point(174, 40);
             this.cbmTipoProducto.Name = "cbmTipoProducto";
             this.cbmTipoProducto.Size = new System.Drawing.Size(121, 21);
             this.cbmTipoProducto.TabIndex = 3;
+            this.cbmTipoProducto.SelectedIndexChanged += new System.EventHandler(this.cbmTipoProducto_SelectedIndexChanged);
             // 
             // listBox1
             // 
@@ -104,12 +100,21 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // cmbProductos
+            // 
+            this.cmbProductos.FormattingEnabled = true;
+            this.cmbProductos.Location = new System.Drawing.Point(174, 74);
+            this.cmbProductos.Name = "cmbProductos";
+            this.cmbProductos.Size = new System.Drawing.Size(121, 21);
+            this.cmbProductos.TabIndex = 6;
+            // 
             // Inventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(817, 450);
+            this.Controls.Add(this.cmbProductos);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.cbmTipoProducto);
@@ -133,6 +138,7 @@
         private System.Windows.Forms.ComboBox cbmTipoProducto;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cmbProductos;
     }
 }
 

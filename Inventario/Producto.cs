@@ -41,14 +41,25 @@ namespace Inventario
         private void btnGuardarProducto_Click(object sender, EventArgs e)
         {
             Productos producto = new Productos();
-            
-            producto.Id = proDL.getLastIdProducto() + 1;
-            producto.NombreProducto = txtNombreProducto.Text;
-            producto.categoria = txtCategoria.Text;
-            producto.cantidad = Convert.ToInt32(txtCantidad.Text);
-            producto.precio = Convert.ToDecimal(txtPrecio.Text);          
-            
-            proDL.guardarProducto(producto);
+
+            if(txtId.Text == "")
+            {
+                producto.Id = proDL.getLastIdProducto() + 1;
+                producto.NombreProducto = txtNombreProducto.Text;
+                producto.categoria = txtCategoria.Text;
+                producto.cantidad = Convert.ToInt32(txtCantidad.Text);
+                producto.precio = Convert.ToDecimal(txtPrecio.Text);
+                proDL.guardarProducto(producto);
+            }
+            else
+            {
+                producto.Id = Convert.ToInt32(txtId.Text);
+                producto.NombreProducto = txtNombreProducto.Text;
+                producto.categoria = txtCategoria.Text;
+                producto.cantidad = Convert.ToInt32(txtCantidad.Text);
+                producto.precio = Convert.ToDecimal(txtPrecio.Text);
+                proDL.actualizarProducto(producto);
+            }
             limpiar();
             actualizarGrid();
         }
@@ -78,6 +89,10 @@ namespace Inventario
         private void btnEditar_Click(object sender, EventArgs e)
         {
             txtId.Text = GridViewProductos.CurrentRow.Cells[0].Value.ToString();
+            txtCategoria.Text = GridViewProductos.CurrentRow.Cells[1].Value.ToString();
+            txtNombreProducto.Text = GridViewProductos.CurrentRow.Cells[2].Value.ToString();
+            txtCantidad.Text = GridViewProductos.CurrentRow.Cells[3].Value.ToString();
+            txtPrecio.Text = GridViewProductos.CurrentRow.Cells[4].Value.ToString();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

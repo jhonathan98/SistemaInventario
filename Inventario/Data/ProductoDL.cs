@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -114,6 +115,34 @@ namespace Inventario.Data
             }
         }
 
+        public void actualizarProducto(Productos pd)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "update Productos set nombre_producto = @nombre_producto, cantidad=@cantidad, categoria = @categoria, precio = @precio where id = @id";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", pd.Id);
+                        cmd.Parameters.AddWithValue("@nombre_producto", pd.NombreProducto);
+                        cmd.Parameters.AddWithValue("@cantidad", pd.cantidad);
+                        cmd.Parameters.AddWithValue("@categoria", pd.categoria);
+                        cmd.Parameters.AddWithValue("@precio", pd.precio);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+                conn.Close();
+
+            }
+        }
+
         public void eliminarProducto(int id)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -136,6 +165,60 @@ namespace Inventario.Data
                 conn.Close();
 
             }
+        }
+
+        public DataSet getCategorias()
+        {
+            DataSet ds = new DataSet();
+            
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "select distinct categoria from Productos";
+
+                    using(SqlDataAdapter adapter  = new SqlDataAdapter(query, conn))
+                    {
+                        adapter.Fill(ds, "Productos");                        
+                        
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+                conn.Close();
+
+            }
+            return ds;
+        }
+
+        public DataSet getProductosXCategoria(string categoria)
+        {
+            DataSet ds = new DataSet();
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "select distinct nombre_producto from Productos where categoria = @categoria";
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
+                    {
+                        adapter.SelectCommand.Parameters.AddWithValue("@categoria", categoria);
+                        adapter.Fill(ds, "Productos");
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+                conn.Close();
+
+            }
+            return ds;
         }
 
     }
