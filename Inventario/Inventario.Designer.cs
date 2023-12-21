@@ -31,6 +31,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.GridViewRegistroVentas = new System.Windows.Forms.DataGridView();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Catidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbmTipoProducto = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.cmbProductos = new System.Windows.Forms.ComboBox();
@@ -39,12 +45,7 @@
             this.btnRegistrarVenta = new System.Windows.Forms.Button();
             this.lblProductoSeleccionado = new System.Windows.Forms.Label();
             this.lblProductoSeleccionadoTitulo = new System.Windows.Forms.Label();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Catidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnRefrescar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewRegistroVentas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,8 +82,39 @@
             this.Total});
             this.GridViewRegistroVentas.Location = new System.Drawing.Point(40, 235);
             this.GridViewRegistroVentas.Name = "GridViewRegistroVentas";
-            this.GridViewRegistroVentas.Size = new System.Drawing.Size(699, 190);
+            this.GridViewRegistroVentas.Size = new System.Drawing.Size(752, 190);
             this.GridViewRegistroVentas.TabIndex = 2;
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.Width = 160;
+            // 
+            // Categoria
+            // 
+            this.Categoria.HeaderText = "Categoria";
+            this.Categoria.Name = "Categoria";
+            // 
+            // Producto
+            // 
+            this.Producto.HeaderText = "Producto";
+            this.Producto.Name = "Producto";
+            // 
+            // Catidad
+            // 
+            this.Catidad.HeaderText = "Catidad";
+            this.Catidad.Name = "Catidad";
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            // 
+            // Total
+            // 
+            this.Total.HeaderText = "Total";
+            this.Total.Name = "Total";
             // 
             // cbmTipoProducto
             // 
@@ -161,35 +193,15 @@
             this.lblProductoSeleccionadoTitulo.Text = "Id-Categoria-Producto-Cantidad-Precio";
             this.lblProductoSeleccionadoTitulo.Click += new System.EventHandler(this.label3_Click_1);
             // 
-            // Fecha
+            // btnRefrescar
             // 
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            // 
-            // Categoria
-            // 
-            this.Categoria.HeaderText = "Categoria";
-            this.Categoria.Name = "Categoria";
-            // 
-            // Producto
-            // 
-            this.Producto.HeaderText = "Producto";
-            this.Producto.Name = "Producto";
-            // 
-            // Catidad
-            // 
-            this.Catidad.HeaderText = "Catidad";
-            this.Catidad.Name = "Catidad";
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            // 
-            // Total
-            // 
-            this.Total.HeaderText = "Total";
-            this.Total.Name = "Total";
+            this.btnRefrescar.Location = new System.Drawing.Point(51, 36);
+            this.btnRefrescar.Name = "btnRefrescar";
+            this.btnRefrescar.Size = new System.Drawing.Size(75, 23);
+            this.btnRefrescar.TabIndex = 12;
+            this.btnRefrescar.Text = "Refrescar";
+            this.btnRefrescar.UseVisualStyleBackColor = true;
+            this.btnRefrescar.Click += new System.EventHandler(this.button2_Click);
             // 
             // Inventario
             // 
@@ -197,6 +209,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(817, 450);
+            this.Controls.Add(this.btnRefrescar);
             this.Controls.Add(this.lblProductoSeleccionadoTitulo);
             this.Controls.Add(this.lblProductoSeleccionado);
             this.Controls.Add(this.btnRegistrarVenta);
@@ -236,6 +249,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Catidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.Button btnRefrescar;
     }
 }
 

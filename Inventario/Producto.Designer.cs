@@ -36,11 +36,6 @@
             this.btnGuardarProducto = new System.Windows.Forms.Button();
             this.txtrespusta = new System.Windows.Forms.Label();
             this.GridViewProductos = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.lblPrecio = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
@@ -48,6 +43,13 @@
             this.lbl_Id = new System.Windows.Forms.Label();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.FechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaActualizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,44 +118,18 @@
             // 
             this.GridViewProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridViewProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.FechaIngreso,
             this.Id,
             this.Categoria,
             this.NombreProducto,
             this.Cantidad,
-            this.Precio});
+            this.Precio,
+            this.FechaActualizacion});
             this.GridViewProductos.Location = new System.Drawing.Point(4, 259);
             this.GridViewProductos.Name = "GridViewProductos";
-            this.GridViewProductos.Size = new System.Drawing.Size(644, 179);
+            this.GridViewProductos.Size = new System.Drawing.Size(962, 179);
             this.GridViewProductos.TabIndex = 8;
             this.GridViewProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridViewProductos_CellContentClick);
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.Width = 50;
-            // 
-            // Categoria
-            // 
-            this.Categoria.HeaderText = "Categoria";
-            this.Categoria.Name = "Categoria";
-            this.Categoria.Width = 150;
-            // 
-            // NombreProducto
-            // 
-            this.NombreProducto.HeaderText = "Nombre del producto";
-            this.NombreProducto.Name = "NombreProducto";
-            this.NombreProducto.Width = 200;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
             // 
             // txtCantidad
             // 
@@ -197,7 +173,7 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(695, 271);
+            this.btnEditar.Location = new System.Drawing.Point(990, 259);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 14;
@@ -215,11 +191,51 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // FechaIngreso
+            // 
+            this.FechaIngreso.HeaderText = "Fecha de Ingeso";
+            this.FechaIngreso.Name = "FechaIngreso";
+            this.FechaIngreso.Width = 150;
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Width = 50;
+            // 
+            // Categoria
+            // 
+            this.Categoria.HeaderText = "Categoria";
+            this.Categoria.Name = "Categoria";
+            this.Categoria.Width = 150;
+            // 
+            // NombreProducto
+            // 
+            this.NombreProducto.HeaderText = "Nombre del producto";
+            this.NombreProducto.Name = "NombreProducto";
+            this.NombreProducto.Width = 200;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            // 
+            // FechaActualizacion
+            // 
+            this.FechaActualizacion.HeaderText = "Fecha de actualizacion";
+            this.FechaActualizacion.Name = "FechaActualizacion";
+            this.FechaActualizacion.Width = 150;
+            // 
             // Producto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1091, 450);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.lbl_Id);
@@ -254,11 +270,6 @@
         private System.Windows.Forms.Button btnGuardarProducto;
         private System.Windows.Forms.Label txtrespusta;
         private System.Windows.Forms.DataGridView GridViewProductos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.TextBox txtPrecio;
@@ -266,5 +277,12 @@
         private System.Windows.Forms.Label lbl_Id;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaIngreso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaActualizacion;
     }
 }

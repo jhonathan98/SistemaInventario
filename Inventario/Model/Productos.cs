@@ -13,5 +13,7 @@ namespace Inventario.Model
         public string categoria { get; set; }
         public int cantidad { get; set; }
         public decimal precio { get; set; }
+        public DateTime fechaIngreso { get; set; }
+        public DateTime fechaActualizacion { get; set; }
     }
 }

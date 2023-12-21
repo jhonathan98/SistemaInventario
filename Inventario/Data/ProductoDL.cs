@@ -38,6 +38,8 @@ namespace Inventario.Data
                                 pd.categoria = reader.GetString(3);
                                 pd.cantidad = reader.GetInt32(2);
                                 pd.precio = reader.GetDecimal(4);
+                                pd.fechaIngreso = reader.GetDateTime(5);
+                                pd.fechaActualizacion = reader.GetDateTime(6);
 
                                 listProductos.Add(pd);                                
                             }
@@ -92,7 +94,7 @@ namespace Inventario.Data
                 try
                 {
                     conn.Open();
-                    string query = "insert into Productos (id,nombre_producto,cantidad,categoria,precio) values(@id,@nombre_producto,@cantidad,@categoria,@precio)";
+                    string query = "insert into Productos (id,nombre_producto,cantidad,categoria,precio,fecha_ingreso,fecha_actualizacion) values(@id,@nombre_producto,@cantidad,@categoria,@precio,@fechaIngreso,@fechaActualizacion)";
                     
                     //si no existe el nombre del producto lo agregamos sino no hacemos nada
                     if (!existeNombreProducto(pd.NombreProducto))
@@ -104,6 +106,8 @@ namespace Inventario.Data
                             cmd.Parameters.AddWithValue("@cantidad", pd.cantidad);
                             cmd.Parameters.AddWithValue("@categoria", pd.categoria);
                             cmd.Parameters.AddWithValue("@precio", pd.precio);
+                            cmd.Parameters.AddWithValue("@fechaIngreso", pd.fechaIngreso);
+                            cmd.Parameters.AddWithValue("@fechaActualizacion", pd.fechaActualizacion);
                             cmd.ExecuteNonQuery();
                         }
                     }
@@ -125,7 +129,7 @@ namespace Inventario.Data
                 try
                 {
                     conn.Open();
-                    string query = "update Productos set nombre_producto = @nombre_producto, cantidad=@cantidad, categoria = @categoria, precio = @precio where id = @id";
+                    string query = "update Productos set nombre_producto = @nombre_producto, cantidad=@cantidad, categoria = @categoria, precio = @precio, fecha_actualizacion = @fechaActualizacion where id = @id";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -134,6 +138,7 @@ namespace Inventario.Data
                         cmd.Parameters.AddWithValue("@cantidad", pd.cantidad);
                         cmd.Parameters.AddWithValue("@categoria", pd.categoria);
                         cmd.Parameters.AddWithValue("@precio", pd.precio);
+                        cmd.Parameters.AddWithValue("@fechaActualizacion", pd.fechaActualizacion);
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -247,6 +252,8 @@ namespace Inventario.Data
                                 pd.categoria = reader.GetString(3);
                                 pd.cantidad = reader.GetInt32(2);
                                 pd.precio = reader.GetDecimal(4);
+                                pd.fechaIngreso = reader.GetDateTime(5);
+                                pd.fechaActualizacion = reader.GetDateTime(6);
                                 
                             }
                         }
@@ -323,6 +330,8 @@ namespace Inventario.Data
                                 pd.categoria = reader.GetString(3);
                                 pd.cantidad = reader.GetInt32(2);
                                 pd.precio = reader.GetDecimal(4);
+                                pd.fechaIngreso = reader.GetDateTime(5);
+                                pd.fechaActualizacion = reader.GetDateTime(6);
                                 
                             }
                         }
@@ -349,12 +358,13 @@ namespace Inventario.Data
                     int resultadoCantidad = pd.cantidad - cantidad;
 
                     conn.Open();
-                    string query = "update Productos set cantidad=@cantidad where id = @id";
+                    string query = "update Productos set cantidad=@cantidad, fecha_actualizacion=@fechaActualizacion where id = @id";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@id", id);
                         cmd.Parameters.AddWithValue("@cantidad", resultadoCantidad);
+                        cmd.Parameters.AddWithValue("@fechaActualizacion", DateTime.Now);
                         
                         cmd.ExecuteNonQuery();
                     }

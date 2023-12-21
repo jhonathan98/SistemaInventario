@@ -49,6 +49,8 @@ namespace Inventario
                 producto.categoria = txtCategoria.Text;
                 producto.cantidad = Convert.ToInt32(txtCantidad.Text);
                 producto.precio = Convert.ToDecimal(txtPrecio.Text);
+                producto.fechaIngreso = DateTime.Now;
+                producto.fechaActualizacion = DateTime.Now;
                 proDL.guardarProducto(producto);
             }
             else
@@ -58,6 +60,7 @@ namespace Inventario
                 producto.categoria = txtCategoria.Text;
                 producto.cantidad = Convert.ToInt32(txtCantidad.Text);
                 producto.precio = Convert.ToDecimal(txtPrecio.Text);
+                producto.fechaActualizacion = DateTime.Now;
                 proDL.actualizarProducto(producto);
             }
             limpiar();
@@ -76,7 +79,7 @@ namespace Inventario
                 foreach (var dato in (System.Collections.IEnumerable)datos)
                 {
                     Productos p = dato as Productos;
-                    GridViewProductos.Rows.Add(p.Id,p.categoria, p.NombreProducto, p.cantidad, p.precio /* ... */);
+                    GridViewProductos.Rows.Add(p.fechaIngreso, p.Id,p.categoria, p.NombreProducto, p.cantidad, p.precio, p.fechaActualizacion /* ... */);
                 }
             }
         }        
@@ -88,11 +91,11 @@ namespace Inventario
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            txtId.Text = GridViewProductos.CurrentRow.Cells[0].Value.ToString();
-            txtCategoria.Text = GridViewProductos.CurrentRow.Cells[1].Value.ToString();
-            txtNombreProducto.Text = GridViewProductos.CurrentRow.Cells[2].Value.ToString();
-            txtCantidad.Text = GridViewProductos.CurrentRow.Cells[3].Value.ToString();
-            txtPrecio.Text = GridViewProductos.CurrentRow.Cells[4].Value.ToString();
+            txtId.Text = GridViewProductos.CurrentRow.Cells[1].Value.ToString();
+            txtCategoria.Text = GridViewProductos.CurrentRow.Cells[2].Value.ToString();
+            txtNombreProducto.Text = GridViewProductos.CurrentRow.Cells[3].Value.ToString();
+            txtCantidad.Text = GridViewProductos.CurrentRow.Cells[4].Value.ToString();
+            txtPrecio.Text = GridViewProductos.CurrentRow.Cells[5].Value.ToString();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

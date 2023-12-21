@@ -31,11 +31,9 @@ namespace Inventario
 
             actualizarGridRegistrosVentas();
 
-            cbmTipoProducto.DataSource = prdDL.getCategorias().Tables["Productos"];
-            cbmTipoProducto.DisplayMember = "Categoria";
-            cbmTipoProducto.ValueMember = "Categoria";
+            actualizarGridTipoProductos();
 
-            if(cbmTipoProducto.SelectedValue != null)
+            if (cbmTipoProducto.SelectedValue != null)
             {
                 actualizarGridProductos();
             }
@@ -139,6 +137,21 @@ namespace Inventario
                     GridViewRegistroVentas.Rows.Add(p.fechaRegistro, p.categoriaProducto, p.producto, p.cantidadProducto, p.precio, p.cantidadProducto*p.precio );
                 }
             }
+        }
+
+        private void actualizarGridTipoProductos()
+        {
+            cbmTipoProducto.DataSource = prdDL.getCategorias().Tables["Productos"];
+            cbmTipoProducto.DisplayMember = "Categoria";
+            cbmTipoProducto.ValueMember = "Categoria";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            actualizarProductoSeleccionado();
+            actualizarGridRegistrosVentas();
+            actualizarGridProductos();
+            actualizarGridTipoProductos();
         }
     }
 }
