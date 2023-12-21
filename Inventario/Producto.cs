@@ -118,5 +118,6 @@ namespace Inventario
             txtCantidad.Text = "";
             txtPrecio.Text = "";
         }
+
     }
 }

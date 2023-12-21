@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Data\DataAccess.cs" />
     <Compile Include="Data\ProductoDL.cs" />
+    <Compile Include="Data\RegistroVentasDL.cs" />
     <Compile Include="Inventario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +79,7 @@
       <DependentUpon>InventarioBDDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Model\Productos.cs" />
+    <Compile Include="Model\RegistroVentas.cs" />
     <Compile Include="Producto.cs">
       <SubType>Form</SubType>
     </Compile>

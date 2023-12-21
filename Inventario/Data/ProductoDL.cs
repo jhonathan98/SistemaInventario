@@ -15,9 +15,7 @@ namespace Inventario.Data
     internal class ProductoDL
     {
         private string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Proyectos\Inventario\Inventario\InventarioBD.mdf;Integrated Security=True";
-        //private List<Productos> ProductosList;
-       
-
+        
         public List<Productos> GetProductos()
         {
             var listProductos = new List<Productos>();
@@ -95,16 +93,21 @@ namespace Inventario.Data
                 {
                     conn.Open();
                     string query = "insert into Productos (id,nombre_producto,cantidad,categoria,precio) values(@id,@nombre_producto,@cantidad,@categoria,@precio)";
-
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    
+                    //si no existe el nombre del producto lo agregamos sino no hacemos nada
+                    if (!existeNombreProducto(pd.NombreProducto))
                     {
-                        cmd.Parameters.AddWithValue("@id", pd.Id);
-                        cmd.Parameters.AddWithValue("@nombre_producto", pd.NombreProducto);
-                        cmd.Parameters.AddWithValue("@cantidad", pd.cantidad);
-                        cmd.Parameters.AddWithValue("@categoria", pd.categoria);
-                        cmd.Parameters.AddWithValue("@precio", pd.precio);
-                        cmd.ExecuteNonQuery();
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@id", pd.Id);
+                            cmd.Parameters.AddWithValue("@nombre_producto", pd.NombreProducto);
+                            cmd.Parameters.AddWithValue("@cantidad", pd.cantidad);
+                            cmd.Parameters.AddWithValue("@categoria", pd.categoria);
+                            cmd.Parameters.AddWithValue("@precio", pd.precio);
+                            cmd.ExecuteNonQuery();
+                        }
                     }
+                    
                 }
                 catch (Exception ex)
                 {
@@ -219,6 +222,150 @@ namespace Inventario.Data
 
             }
             return ds;
+        }
+
+        public Productos getProductoXproductoYcategoria(string categoria, string producto)
+        {
+            Productos pd = new Productos();
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "select * from Productos where categoria = @categoria and nombre_producto = @producto";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@categoria", categoria);
+                        cmd.Parameters.AddWithValue("@producto", producto);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {                                
+                                pd.Id = reader.GetInt32(0);
+                                pd.NombreProducto = reader.GetString(1);
+                                pd.categoria = reader.GetString(3);
+                                pd.cantidad = reader.GetInt32(2);
+                                pd.precio = reader.GetDecimal(4);
+                                
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+                conn.Close();
+
+            }
+            return pd;
+        }
+
+        public bool existeNombreProducto(string producto)
+        {
+            int id = 0;
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "select * from Productos where nombre_producto = @producto";
+                    
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {                        
+                        cmd.Parameters.AddWithValue("@producto", producto);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                id = reader.GetInt32(0);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+                conn.Close();                
+
+            }
+            if (id == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public Productos getProductoXid(int id)
+        {
+            Productos pd = new Productos();
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "select * from Productos where id = @id";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {                                
+                                pd.Id = reader.GetInt32(0);
+                                pd.NombreProducto = reader.GetString(1);
+                                pd.categoria = reader.GetString(3);
+                                pd.cantidad = reader.GetInt32(2);
+                                pd.precio = reader.GetDecimal(4);
+                                
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+                conn.Close();
+
+            }
+            return pd;
+        }
+
+        public void actualizarCantidadProductoxId(int id,int cantidad)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    Productos pd = new Productos();
+                    pd = getProductoXid(id);
+                    int resultadoCantidad = pd.cantidad - cantidad;
+
+                    conn.Open();
+                    string query = "update Productos set cantidad=@cantidad where id = @id";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@cantidad", resultadoCantidad);
+                        
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+                conn.Close();
+
+            }
         }
 
     }
