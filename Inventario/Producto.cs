@@ -100,12 +100,14 @@ namespace Inventario
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if(txtId.Text != "")
+            //if(txtId.Text != "")
+            string idTexto = GridViewProductos.CurrentRow.Cells[1].Value.ToString();
+            if (idTexto != "")
             {
-                DialogResult elimina = MessageBox.Show("Seguro que desea eliminar el producto con el id:" + txtId.Text, "Salir", MessageBoxButtons.YesNo);
+                DialogResult elimina = MessageBox.Show("Seguro que desea eliminar el producto con el id:" + idTexto, "Salir", MessageBoxButtons.YesNo);
                 if(elimina == DialogResult.Yes)
                 {
-                    int id = Convert.ToInt32(txtId.Text);
+                    int id = Convert.ToInt32(idTexto);
                     proDL.eliminarProducto(id);
                     limpiar();
                     actualizarGrid(); 

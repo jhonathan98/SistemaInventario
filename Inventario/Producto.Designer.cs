@@ -36,13 +36,6 @@
             this.btnGuardarProducto = new System.Windows.Forms.Button();
             this.txtrespusta = new System.Windows.Forms.Label();
             this.GridViewProductos = new System.Windows.Forms.DataGridView();
-            this.txtCantidad = new System.Windows.Forms.TextBox();
-            this.lblPrecio = new System.Windows.Forms.Label();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.lbl_Id = new System.Windows.Forms.Label();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.FechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +43,13 @@
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaActualizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtCantidad = new System.Windows.Forms.TextBox();
+            this.lblPrecio = new System.Windows.Forms.Label();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.lbl_Id = new System.Windows.Forms.Label();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,6 +116,7 @@
             // 
             // GridViewProductos
             // 
+            this.GridViewProductos.AllowUserToAddRows = false;
             this.GridViewProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridViewProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FechaIngreso,
@@ -130,6 +131,46 @@
             this.GridViewProductos.Size = new System.Drawing.Size(962, 179);
             this.GridViewProductos.TabIndex = 8;
             this.GridViewProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridViewProductos_CellContentClick);
+            // 
+            // FechaIngreso
+            // 
+            this.FechaIngreso.HeaderText = "Fecha de Ingeso";
+            this.FechaIngreso.Name = "FechaIngreso";
+            this.FechaIngreso.Width = 150;
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Width = 50;
+            // 
+            // Categoria
+            // 
+            this.Categoria.HeaderText = "Categoria";
+            this.Categoria.Name = "Categoria";
+            this.Categoria.Width = 150;
+            // 
+            // NombreProducto
+            // 
+            this.NombreProducto.HeaderText = "Nombre del producto";
+            this.NombreProducto.Name = "NombreProducto";
+            this.NombreProducto.Width = 200;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            // 
+            // FechaActualizacion
+            // 
+            this.FechaActualizacion.HeaderText = "Fecha de actualizacion";
+            this.FechaActualizacion.Name = "FechaActualizacion";
+            this.FechaActualizacion.Width = 150;
             // 
             // txtCantidad
             // 
@@ -190,46 +231,6 @@
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // FechaIngreso
-            // 
-            this.FechaIngreso.HeaderText = "Fecha de Ingeso";
-            this.FechaIngreso.Name = "FechaIngreso";
-            this.FechaIngreso.Width = 150;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.Width = 50;
-            // 
-            // Categoria
-            // 
-            this.Categoria.HeaderText = "Categoria";
-            this.Categoria.Name = "Categoria";
-            this.Categoria.Width = 150;
-            // 
-            // NombreProducto
-            // 
-            this.NombreProducto.HeaderText = "Nombre del producto";
-            this.NombreProducto.Name = "NombreProducto";
-            this.NombreProducto.Width = 200;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            // 
-            // FechaActualizacion
-            // 
-            this.FechaActualizacion.HeaderText = "Fecha de actualizacion";
-            this.FechaActualizacion.Name = "FechaActualizacion";
-            this.FechaActualizacion.Width = 150;
             // 
             // Producto
             // 
