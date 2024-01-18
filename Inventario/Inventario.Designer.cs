@@ -72,6 +72,7 @@
             // 
             // GridViewRegistroVentas
             // 
+            this.GridViewRegistroVentas.AllowUserToAddRows = false;
             this.GridViewRegistroVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridViewRegistroVentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Fecha,

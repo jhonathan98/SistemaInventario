@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Inventario.Data
 {
@@ -43,7 +44,7 @@ namespace Inventario.Data
                 }
                 catch (Exception ex)
                 {
-
+                    MessageBox.Show("Error al seleccionar los registros de ventas" + ex.Message);
                 }
                 conn.Close();
 
@@ -72,7 +73,7 @@ namespace Inventario.Data
                 }
                 catch (Exception ex)
                 {
-
+                    MessageBox.Show("Error al registrar una venta " + ex.Message);
                 }
                 conn.Close();
 

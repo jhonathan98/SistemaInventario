@@ -48,7 +48,7 @@ namespace Inventario.Data
                 }
                 catch (Exception ex)
                 {
-                    
+                    MessageBox.Show("Error al seleccionar todos los productos"+ex.Message);
                 }
                 conn.Close();
 
@@ -79,7 +79,7 @@ namespace Inventario.Data
                 }
                 catch (Exception ex)
                 {
-
+                    MessageBox.Show("Error al consultar el ultimo producto ingresado" + ex.Message);
                 }
                 conn.Close();
 
@@ -115,7 +115,7 @@ namespace Inventario.Data
                 }
                 catch (Exception ex)
                 {
-
+                    MessageBox.Show("Error al guardar el producto"+ex.Message);
                 }
                 conn.Close();
 
@@ -144,7 +144,7 @@ namespace Inventario.Data
                 }
                 catch (Exception ex)
                 {
-
+                    MessageBox.Show("Error al actualizar el producto"+ex.Message);
                 }
                 conn.Close();
 
@@ -168,7 +168,7 @@ namespace Inventario.Data
                 }
                 catch (Exception ex)
                 {
-
+                    MessageBox.Show("Error al eliminar el producto con id:" + id + " error: "+ex.Message);
                 }
                 conn.Close();
 
@@ -194,7 +194,7 @@ namespace Inventario.Data
                 }
                 catch (Exception ex)
                 {
-
+                    MessageBox.Show("Error al seleccionar las diferentes categorias de productos " + ex.Message);
                 }
                 conn.Close();
 
@@ -221,7 +221,7 @@ namespace Inventario.Data
                 }
                 catch (Exception ex)
                 {
-
+                    MessageBox.Show("Error al seleccionar los diferentes productos por categoria:" + categoria + " error:" + ex.Message);
                 }
                 conn.Close();
 
@@ -261,7 +261,7 @@ namespace Inventario.Data
                 }
                 catch (Exception ex)
                 {
-
+                    MessageBox.Show("Error al seleccionar el producto por catergoria:" + categoria + " y producto:" + producto + " error:"+ex.Message);
                 }
                 conn.Close();
 
@@ -293,7 +293,7 @@ namespace Inventario.Data
                 }
                 catch (Exception ex)
                 {
-
+                    MessageBox.Show("Error al seleccionar un producto por el nombre" + producto + " error:" + ex.Message);
                 }
                 conn.Close();                
 
@@ -339,7 +339,7 @@ namespace Inventario.Data
                 }
                 catch (Exception ex)
                 {
-
+                    MessageBox.Show("Error al obtener el producto por id:" + id + "->" + ex.Message);
                 }
                 conn.Close();
 
@@ -371,7 +371,7 @@ namespace Inventario.Data
                 }
                 catch (Exception ex)
                 {
-
+                    MessageBox.Show("Error al actualizar la cantidad del producto con el id:" + id + " error:" + ex.Message);
                 }
                 conn.Close();
 

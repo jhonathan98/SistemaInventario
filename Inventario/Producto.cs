@@ -65,6 +65,7 @@ namespace Inventario
             }
             limpiar();
             actualizarGrid();
+            MessageBox.Show("Producto guardado");
         }
 
         private void AgregarDatosAlDataGridView(object datos)
